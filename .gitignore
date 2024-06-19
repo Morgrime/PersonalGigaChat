@@ -1,2 +1,4 @@
 secrets.toml
 autorisation.txt
+__pycache__
+.gitignore

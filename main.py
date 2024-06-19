@@ -18,8 +18,7 @@ if "access_token" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "ai", "content": "Чего надо?", "function_call": "auto"}]
 
-# отправка сообщений
-# TODO: добавить куда-то "function_call": "auto" для генерации картинок
+
 for msg in st.session_state.messages:
     if msg.get("is_image"): # если был запрос на картинку
         st.chat_message(msg["role"]).image(msg["content"])
