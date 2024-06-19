@@ -53,6 +53,7 @@ def send_prompt(msg: str, access_token: str):
         "content": msg
         }
     ],
+    "function_call": "auto",
     })
     headers = {
     'Content-Type': 'application/json',
@@ -62,7 +63,10 @@ def send_prompt(msg: str, access_token: str):
 
     response = requests.post(url, headers=headers, data=payload, verify=False)
 
-    return response.json()["choices"][0]["message"]["content"]
+    try:
+        return response.json()["choices"][0]["message"]["content"]
+    except Exception as e:
+        return f"Ошибка: {e}"
 
 
 def sent_prompt_check(msg: str, access_token: str):

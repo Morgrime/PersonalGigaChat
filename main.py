@@ -16,7 +16,7 @@ if "access_token" not in st.session_state:
 
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "ai", "content": "Чего надо?"}]
+    st.session_state.messages = [{"role": "ai", "content": "Чего надо?", "function_call": "auto"}]
 
 # отправка сообщений
 # TODO: добавить куда-то "function_call": "auto" для генерации картинок
