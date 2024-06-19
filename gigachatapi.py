@@ -10,6 +10,7 @@ CLIENT_ID = st.secrets["CLIENT_ID"]
 SECRET = st.secrets["SECRET"]
 
 
+# Checking is token available or not
 def get_access_token() -> str:
     url = "https://ngw.devices.sberbank.ru:9443/api/v2/oauth"
     headers = {
@@ -17,7 +18,7 @@ def get_access_token() -> str:
         'Accept': 'application/json',
         'RqUID': str(uuid.uuid4()),
     }
-    payload = {"scope": "GIGACHAT_API_PERS", "function_call": "auto"}
+    payload = {"scope": "GIGACHAT_API_PERS"}
     res = requests.post(
         url=url, 
         headers=headers, 
@@ -28,7 +29,7 @@ def get_access_token() -> str:
     return access_token
 
 
-# Images
+# Generate images 
 def get_image(access_token: str, file_id: str):
     url = f"https://gigachat.devices.sberbank.ru/api/v1/files/{file_id}/content"
 
@@ -40,7 +41,8 @@ def get_image(access_token: str, file_id: str):
     response = requests.get(url, headers=headers, data=payload, verify=False)
     return response.content
 
-
+# Here you send prompt and configure settings
+# TODO: add chat history
 def send_prompt(msg: str, access_token: str):
 
     url = "https://gigachat.devices.sberbank.ru/api/v1/chat/completions"
@@ -68,7 +70,7 @@ def send_prompt(msg: str, access_token: str):
     except Exception as e:
         return f"Ошибка: {e}"
 
-
+# check: need to generate image or not
 def sent_prompt_check(msg: str, access_token: str):
     res = send_prompt(msg, access_token)
     data, is_image = get_file_id(res)

@@ -5,7 +5,7 @@ from gigachatapi import get_access_token, send_prompt, sent_prompt_check
 CLIENT_ID = st.secrets["CLIENT_ID"]
 SECRET = st.secrets["SECRET"]
 
-st.title("Not Chat-bot")
+st.title("Persona GigaChat-bot")
 
 if "access_token" not in st.session_state:
     try:
@@ -16,7 +16,7 @@ if "access_token" not in st.session_state:
 
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "ai", "content": "Чего надо?", "function_call": "auto"}]
+    st.session_state.messages = [{"role": "ai", "content": "Привет"}]
 
 
 for msg in st.session_state.messages:
