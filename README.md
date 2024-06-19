@@ -11,5 +11,6 @@ CLIENT_ID = "YOUR CLIENT ID"
 SECRET = "YOUR SECRET ID" 
 
 you can find it here: https://developers.sber.ru/studio
+
 4. Then you should be in your repo with main.py, after this run this command: streamlit run main.py
 5. Done
