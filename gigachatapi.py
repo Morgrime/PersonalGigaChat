@@ -53,9 +53,6 @@ def send_prompt(msg: str, access_token: str):
         {
         "role": "user",
         "content": msg,
-        "data_for_context": [
-            {}
-        ]
         }
     ],
     "function_call": "auto",
