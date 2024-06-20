@@ -8,6 +8,7 @@ Installation:
 3. Put your client_id and client_secret into secrets.toml so it should look like this:
 
 CLIENT_ID = "YOUR CLIENT ID"
+
 SECRET = "YOUR SECRET ID" 
 
 you can find it here: https://developers.sber.ru/studio
